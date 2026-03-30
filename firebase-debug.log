@@ -1,0 +1,58 @@
+[debug] [2026-03-30T15:45:57.018Z] ----------------------------------------------------------------------
+[debug] [2026-03-30T15:45:57.022Z] Command:       /nix/store/ixbb20farqh1f4fqbmsn6b1ixn8mc8ij-nodejs-20.18.1/bin/node /home/user/.global_modules/bin/firebase init
+[debug] [2026-03-30T15:45:57.022Z] CLI Version:   15.12.0
+[debug] [2026-03-30T15:45:57.022Z] Platform:      linux
+[debug] [2026-03-30T15:45:57.022Z] Node Version:  v20.18.1
+[debug] [2026-03-30T15:45:57.023Z] Time:          Mon Mar 30 2026 15:45:57 GMT+0000 (Coordinated Universal Time)
+[debug] [2026-03-30T15:45:57.023Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-30T15:45:57.860Z] Checked if tokens are valid: true, expires at: 1774889076248
+[debug] [2026-03-30T15:45:57.861Z] Checked if tokens are valid: true, expires at: 1774889076248
+[debug] [2026-03-30T15:45:57.864Z] >>> [apiv2][query] GET https://monospace-pa.googleapis.com/v1/workspaces/portfolio-95191232 [none]
+[debug] [2026-03-30T15:45:58.993Z] <<< [apiv2][status] GET https://monospace-pa.googleapis.com/v1/workspaces/portfolio-95191232 200
+[debug] [2026-03-30T15:45:58.994Z] <<< [apiv2][body] GET https://monospace-pa.googleapis.com/v1/workspaces/portfolio-95191232 {"workspaceId":"portfolio-95191232","name":"portfolio","workspaceRedirectUrl":"firebase-portfolio-1774885167221.cluster-isls3qj2gbd5qs4jkjqvhahfv6.cloudworkstations.dev","status":"WORKSPACE_STATUS_RUNNING","lastAccessDatetime":"2026-03-30T15:45:08.640509Z","workspaceTemplate":"WORKSPACE_TEMPLATE_BLANK_WEB","owner":"SELF","serviceAccountEmail":"msp-2500644209095927355@monospace-per-ws-sa-1.iam.gserviceaccount.com","gitRepoUrl":"https://github.com/xhuazman/portfolio","enableNix":true,"ownerEmail":"xhu.azman@gmail.com","workstationAccessToken":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Nsb3VkLmdvb2dsZS5jb20vd29ya3N0YXRpb25zIiwiYXVkIjoiZmlyZWJhc2UtcG9ydGZvbGlvLTE3NzQ4ODUxNjcyMjEuY2x1c3Rlci1pc2xzM3FqMmdiZDVxczRqa2pxdmhhaGZ2Ni5jbG91ZHdvcmtzdGF0aW9ucy5kZXYiLCJpYXQiOjE3NzQ4ODU1NTgsImV4cCI6MTc3NDk3MTk1OH0.GdyOieOCsLWntylaT5PQ2UXVARsJmzXRxi0uf2uN1jF7JpkYvUosQUgptqzS0wAAvqhrfqIFW0SDudnWRPG6ghNPw5eCr_p40oYGIevNJ-jnGeT0xMW0ki1fRbqc8Xwcy4jF_R2zy7Gr7RqNNLQa7iTpZjzu9aLG_D-DmNEhXRXv9umfgFEijkvp2M9oP1RCiM5RfdpZXkVRFyoDnGw_cgEPkwj5Cfp0JdwV42QK5c3D7wrMMDz086qL76bn2JzmnGWAvq-S41qRi8YrtpANQhof8lB-acLfRROy0a8eWFYBkwT_LK6vW7P-Yur8IyErWbAVVKcwF8IXM0AgaS7zOg","firebaseProjectId":"umar-project-85b9b"}
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/user/portfolio
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-03-30T15:46:04.609Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-03-30T15:46:04.609Z] > authorizing via signed-in user (xhu.azman@gmail.com)
+[debug] [2026-03-30T15:46:04.610Z] Checked if tokens are valid: true, expires at: 1774889076248
+[debug] [2026-03-30T15:46:04.610Z] Checked if tokens are valid: true, expires at: 1774889076248
+[debug] [2026-03-30T15:46:04.610Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/umar-project-85b9b [none]
+[debug] [2026-03-30T15:46:04.931Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/umar-project-85b9b 200
+[debug] [2026-03-30T15:46:04.931Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/umar-project-85b9b {"projectId":"umar-project-85b9b","projectNumber":"205894898940","displayName":"umar-project","name":"projects/umar-project-85b9b","resources":{"hostingSite":"umar-project-85b9b"},"state":"ACTIVE","etag":"1_1d06708a-089c-41cf-9bbb-8a6a0b75c322"}
+[info] i  Using project umar-project-85b9b (umar-project) . 
+[info] 
+=== Hosting Setup
+[debug] [2026-03-30T15:46:04.952Z] Checked if tokens are valid: true, expires at: 1774889076248
+[debug] [2026-03-30T15:46:04.954Z] Checked if tokens are valid: true, expires at: 1774889076248
+[debug] [2026-03-30T15:46:04.955Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/umar-project-85b9b [none]
+[debug] [2026-03-30T15:46:05.193Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/umar-project-85b9b 200
+[debug] [2026-03-30T15:46:05.193Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/umar-project-85b9b {"projectId":"umar-project-85b9b","projectNumber":"205894898940","displayName":"umar-project","name":"projects/umar-project-85b9b","resources":{"hostingSite":"umar-project-85b9b"},"state":"ACTIVE","etag":"1_1d06708a-089c-41cf-9bbb-8a6a0b75c322"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] 
+[info] i  Detected a .git folder at /home/user/portfolio 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=110398164&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
