@@ -4,137 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UmarHanz Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme"> <canvas id="particleCanvas"></canvas>
+<body class="dark-theme">
+    <canvas id="particleCanvas"></canvas>
 
+    <!-- NAV -->
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#tech-projects">Tech Projects</a>
-        <a href="#outside-projects">Outside Projects</a>
-        <a href="#contact">Contact</a>
+        <span class="nav-logo">UmarHanz<span class="dot">.</span></span>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#tech-projects">Projects</a>
+            <a href="#outside-projects">Outside</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta">Get in touch</a>
     </nav>
 
+    <!-- HERO -->
     <header id="home">
-        <img src="profile1.jpg" class="profile-pic" alt="Profile Picture">
-        <h1>UmarHanz</h1>
-        <p>Developer | Tech Enthusiast</p>
-        <a href="#contact" class="btn">Contact Me</a>
+        <div class="hero-badge">● Available for internship &amp; collaboration</div>
+        <h1 class="hero-name">
+            <span class="line">Umar</span><span class="line accent">Hanz</span>
+        </h1>
+        <p class="hero-sub">Developer &nbsp;·&nbsp; Tech Enthusiast &nbsp;·&nbsp; IoT &amp; AI</p>
+        <div class="hero-btns">
+            <a href="#tech-projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-line"></div>
+        </div>
     </header>
 
+    <!-- ABOUT (photo revealed here after scroll) -->
     <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hello! I'm Umar. I enjoy building technology projects and learning new skills in programming and system development. This portfolio showcases my work and technical abilities.
-        </p>
+        <div class="about-inner">
+            <div class="about-photo-wrap reveal-photo">
+                <img src="profile1.jpg" class="profile-pic" alt="Umar's Photo">
+                <div class="photo-glow"></div>
+            </div>
+            <div class="about-text">
+                <span class="section-tag">Who I am</span>
+                <h2>About Me</h2>
+                <p>
+                    Hello! I'm Umar. I enjoy building technology projects and learning new skills in programming and system development. This portfolio showcases my work and technical abilities.
+                </p>
+            </div>
+        </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills">
+        <span class="section-tag">What I know</span>
         <h2>Skills</h2>
-        <p>Coding</p>
-        <div class="skill-bar">
-            <div class="skill-level" style="width:70%"></div>
-        </div>
-        <p>Editing</p>
-        <div class="skill-bar">
-            <div class="skill-level" style="width:80%"></div>
-        </div>
-        <p>Baking</p>
-        <div class="skill-bar">
-            <div class="skill-level" style="width:60%"></div>
+        <div class="skills-list">
+            <div class="skill-item">
+                <div class="skill-header"><span>Coding</span><span class="skill-pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-level" style="width:70%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span>Editing</span><span class="skill-pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-level" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span>Baking</span><span class="skill-pct">60%</span></div>
+                <div class="skill-bar"><div class="skill-level" style="width:60%"></div></div>
+            </div>
         </div>
     </section>
 
+    <!-- TECH PROJECTS -->
     <section id="tech-projects">
+        <span class="section-tag">What I built</span>
         <h2>Tech Projects</h2>
         <div class="projects-container">
             <div class="project-card">
+                <div class="card-tag">IoT</div>
                 <h3>Plugo Smart Plug</h3>
                 <p>Smart IoT plug designed to control electrical devices and monitor power usage.</p>
-                <a href="techproject1.html" class="btn">View Project</a>
+                <a href="techproject1.html" class="btn btn-primary">View Project</a>
             </div>
         </div>
     </section>
 
+    <!-- OUTSIDE PROJECTS -->
     <section id="outside-projects">
+        <span class="section-tag">Beyond the screen</span>
         <h2>Outside Projects</h2>
         <div class="projects-container">
             <div class="project-card">
+                <div class="card-tag">DIY</div>
                 <h3>Repairing Roof Store</h3>
-                <p>Change the old zinc to the new one after 15 years. Seemed hard, but not for us!</p>
-                <a href="outsideproject1.html" class="btn">View Project</a>
+                <p>Changed the old zinc to a new one after 15 years. Seemed hard, but not for us!</p>
+                <a href="outsideproject1.html" class="btn btn-primary">View Project</a>
             </div>
         </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
+        <span class="section-tag">Say hello</span>
         <h2>Contact</h2>
-        <p>Email: your@email.com</p>
+        <p class="contact-email">xhu.azman@gmail.com</p>
     </section>
 
     <footer>
-        <p>&copy; 2026 UmarHanz Portfolio</p>
+        <p>© 2026 UmarHanz Portfolio</p>
     </footer>
 
     <script>
-      const canvas = document.getElementById('particleCanvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-  
-      function init() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-          particles = [];
-          
-          // We use slightly fewer particles because they are much larger now
-          const particleCount = 60; 
-  
-          for (let i = 0; i < particleCount; i++) {
-              // This logic creates a few massive ones and many small ones
-              // Math.pow(x, 3) heavily biases towards small numbers but allows for big peaks
-              const randomSize = Math.pow(Math.random(), 3) * 45 + 1; 
-              
-              particles.push({
-                  x: Math.random() * canvas.width,
-                  y: Math.random() * canvas.height,
-                  radius: randomSize,
-                  vx: (Math.random() - 0.5) * 0.3, 
-                  vy: (Math.random() - 0.5) * 0.3,
-                  // Large particles get lower opacity so they look like "glows"
-                  opacity: randomSize > 20 ? Math.random() * 0.2 : Math.random() * 0.6 + 0.2
-              });
-          }
-      }
-  
-      function draw() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          
-          particles.forEach(p => {
-              ctx.beginPath();
-              ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-              
-              // Using your theme color #38bdf8
-              ctx.fillStyle = `rgba(56, 189, 248, ${p.opacity})`;
-              ctx.fill();
-  
-              p.x += p.vx;
-              p.y += p.vy;
-  
-              // Wrap around edges including the radius so they don't pop out of existence
-              if (p.x < -p.radius) p.x = canvas.width + p.radius;
-              if (p.x > canvas.width + p.radius) p.x = -p.radius;
-              if (p.y < -p.radius) p.y = canvas.height + p.radius;
-              if (p.y > canvas.height + p.radius) p.y = -p.radius;
-          });
-          
-          requestAnimationFrame(draw);
-      }
-  
-      window.addEventListener('resize', init);
-      init();
-      draw();
-  </script>
+    /* ── Particles ── */
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function init() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+        const count = 110;
+        for (let i = 0; i < count; i++) {
+            const r = Math.pow(Math.random(), 3) * 40 + 1;
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: r,
+                vx: (Math.random() - 0.5) * 1.1,
+                vy: (Math.random() - 0.5) * 1.1,
+                opacity: r > 20 ? Math.random() * 0.18 : Math.random() * 0.55 + 0.15
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(56,189,248,${p.opacity})`;
+            ctx.fill();
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < -p.radius) p.x = canvas.width + p.radius;
+            if (p.x > canvas.width + p.radius) p.x = -p.radius;
+            if (p.y < -p.radius) p.y = canvas.height + p.radius;
+            if (p.y > canvas.height + p.radius) p.y = -p.radius;
+        });
+        requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', init);
+    init(); draw();
+
+    /* ── Scroll reveal for photo ── */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.reveal-photo').forEach(el => observer.observe(el));
+
+    /* ── Nav active link highlight ── */
+    const sections = document.querySelectorAll('header, section');
+    const navLinks = document.querySelectorAll('nav .nav-links a');
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navLinks.forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { threshold: 0.4 });
+    sections.forEach(s => io.observe(s));
+    </script>
 </body>
 </html>

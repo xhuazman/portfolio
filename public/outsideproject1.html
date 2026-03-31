@@ -1,21 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repairing Roof Store — UmarHanz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<section id="gallery">
+        :root {
+            --bg:      #03080f;
+            --bg2:     #060d18;
+            --bg3:     #0a1525;
+            --accent:  #38bdf8;
+            --text:    #dde6f0;
+            --muted:   #5a7490;
+            --border:  rgba(56,189,248,0.12);
+            --font-head: 'Bebas Neue', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
 
-<h2>Activities & Projects Gallery</h2>
+        html { scroll-behavior: smooth; }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
 
-<div class="gallery-container">
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 60px;
+            background: rgba(3,8,15,0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            color: var(--text);
+            letter-spacing: 0.06em;
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
 
-<img src="outside-project/outsideproject1.jpg">
-<img src="outside-project/outsideproject2.jpg">
-<img src="outside-project/outsideproject3.jpg">
-<img src="outside-project/outsideproject4.jpg">
-<img src="outside-project/outsideproject5.jpg">
-<img src="outside-project/outsideproject6.jpg">
-<img src="outside-project/outsideproject7.jpg">
-<img src="outside-project/outsideproject8.jpg">
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--accent); }
+        .nav-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-</div>
+        /* ── Hero ── */
+        .project-hero {
+            padding: 120px 10% 60px;
+            border-bottom: 1px solid var(--border);
+        }
+        .project-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(56,189,248,0.08);
+            padding: 4px 12px;
+            border-radius: 99px;
+            margin-bottom: 18px;
+        }
+        .project-hero h1 {
+            font-family: var(--font-head);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: #fff;
+            line-height: 0.95;
+            margin-bottom: 20px;
+        }
+        .project-hero p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 560px;
+            line-height: 1.75;
+        }
+        .project-meta {
+            display: flex;
+            gap: 32px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+        }
+        .meta-item { display: flex; flex-direction: column; gap: 4px; }
+        .meta-label {
+            font-size: 0.67rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+        }
+        .meta-value {
+            font-size: 0.92rem;
+            color: var(--text);
+            font-weight: 400;
+        }
 
-</section>
+        /* ── Timeline ── */
+        .timeline {
+            padding: 80px 10%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .phase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .phase.visible { opacity: 1; transform: translateY(0); }
+        .phase:last-child { margin-bottom: 0; }
+
+        /* alternate layout */
+        .phase.reverse { direction: rtl; }
+        .phase.reverse > * { direction: ltr; }
+
+        .phase-text { display: flex; flex-direction: column; gap: 14px; }
+        .phase-number {
+            font-family: var(--font-head);
+            font-size: 5rem;
+            color: rgba(56,189,248,0.1);
+            line-height: 1;
+            letter-spacing: 0.04em;
+        }
+        .phase-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .phase-title {
+            font-family: var(--font-head);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            letter-spacing: 0.04em;
+            color: #fff;
+            font-weight: 400;
+            line-height: 1.05;
+        }
+        .phase-desc {
+            font-size: 0.93rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* ── Photo ── */
+        .phase-photo {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .phase-photo img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .phase-photo:hover img { transform: scale(1.04); }
+        .phase-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(3,8,15,0.5) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ── Dual photos ── */
+        .dual-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .dual-photos .phase-photo img { height: 220px; }
+
+        /* ── Divider ── */
+        .phase-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 0 0 100px 0;
+        }
+
+        /* ── Final section ── */
+        .final-section {
+            background: var(--bg2);
+            padding: 80px 10%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .final-section h2 {
+            font-family: var(--font-head);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 0.04em;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .final-section p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.75;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: #000;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.87rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-btn:hover { background: #7dd3fc; transform: translateY(-2px); }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 24px;
+            background: #020509;
+            color: var(--muted);
+            font-size: 0.78rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .project-hero { padding: 100px 6% 50px; }
+            .timeline { padding: 60px 6%; }
+            .phase { grid-template-columns: 1fr; gap: 28px; }
+            .phase.reverse { direction: ltr; }
+            .phase-photo img { height: 240px; }
+            .dual-photos .phase-photo img { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">UmarHanz<span>.</span></a>
+        <a href="index.html#outside-projects" class="nav-back">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to Portfolio
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="project-hero">
+        <span class="project-tag">DIY · Outside Project</span>
+        <h1>Repairing<br>Roof Store</h1>
+        <p>A full roof replacement project replacing worn-out zinc sheets that had served for 15 years. From stripping the old structure down to laying the last sheet — we did it ourselves.</p>
+        <div class="project-meta">
+            <div class="meta-item">
+                <span class="meta-label">Type</span>
+                <span class="meta-value">DIY Construction</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Duration</span>
+                <span class="meta-value">Multi-day project</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Hands-on crew member</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Status</span>
+                <span class="meta-value" style="color: var(--accent);">✓ Completed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+
+        <!-- Phase 1 -->
+        <div class="phase">
+            <div class="phase-text">
+                <div class="phase-number">01</div>
+                <span class="phase-label">Inspection & Planning</span>
+                <h2 class="phase-title">Assessing the Old Roof</h2>
+                <p class="phase-desc">Before any work began, we inspected the existing zinc roof that had been in place for 15 years. Rust, warping, and water leakage spots were identified. We planned the layout and estimated how many new zinc sheets would be needed to cover the full store.</p>
+            </div>
+            <div class="phase-photo">
+                <img src="https://huazman.site/outside-project/outsideproject1.jpg" alt="Inspecting the old roof">
+            </div>
+        </div>
+
+        <div class="phase-divider"></div>
+
+        <!-- Phase 2 -->
+        <div class="phase reverse">
+            <div class="phase-text">
+                <div class="phase-number">02</div>
+                <span class="phase-label">Dismantling</span>
+                <h2 class="phase-title">Tearing Down the Old Zinc</h2>
+                <p class="phase-desc">The old sheets were carefully removed one by one to avoid damaging the underlying frame. Rusted bolts and corroded fasteners made this stage physically demanding. Safety was our top priority working at height.</p>
+            </div>
+            <div class="phase-photo">
+                <img src="https://huazman.site/outside-project/outsideproject2.jpg" alt="Removing old zinc sheets">
+            </div>
+        </div>
+
+        <div class="phase-divider"></div>
+
+        <!-- Phase 3 -->
+        <div class="phase">
+            <div class="phase-text">
+                <div class="phase-number">03</div>
+                <span class="phase-label">Frame Check</span>
+                <h2 class="phase-title">Inspecting the Structure</h2>
+                <p class="phase-desc">With the old zinc removed, we thoroughly checked the wooden and metal framework underneath. Any damaged beams were repaired or reinforced before we proceeded. A solid frame is the foundation for a roof that lasts another decade.</p>
+            </div>
+            <div class="phase-photo">
+                <img src="https://huazman.site/outside-project/outsideproject3.jpg" alt="Checking the roof frame">
+            </div>
+        </div>
+
+        <div class="phase-divider"></div>
+
+        <!-- Phase 4 — dual photos -->
+        <div class="phase">
+            <div class="phase-text">
+                <div class="phase-number">04</div>
+                <span class="phase-label">Material Handling</span>
+                <h2 class="phase-title">Lifting the New Sheets</h2>
+                <p class="phase-desc">New zinc sheets were transported and lifted to the roof level. Coordinating the lift safely required teamwork — one person on the ground passing sheets, another securing them in position on top. Every sheet was measured and cut to fit precisely.</p>
+            </div>
+            <div class="dual-photos">
+                <div class="phase-photo">
+                    <img src="https://huazman.site/outside-project/outsideproject4.jpg" alt="Transporting new sheets">
+                </div>
+                <div class="phase-photo">
+                    <img src="https://huazman.site/outside-project/outsideproject5.jpg" alt="Lifting sheets to roof">
+                </div>
+            </div>
+        </div>
+
+        <div class="phase-divider"></div>
+
+        <!-- Phase 5 -->
+        <div class="phase reverse">
+            <div class="phase-text">
+                <div class="phase-number">05</div>
+                <span class="phase-label">Installation</span>
+                <h2 class="phase-title">Laying the New Zinc</h2>
+                <p class="phase-desc">Sheets were fastened row by row, starting from the lowest edge and working upward to ensure proper water runoff. Each sheet overlapped the previous one by the correct margin. Bolts were tightened and rubber washers added to seal every fastening point against rain.</p>
+            </div>
+            <div class="phase-photo">
+                <img src="https://huazman.site/outside-project/outsideproject6.jpg" alt="Installing new zinc sheets">
+            </div>
+        </div>
+
+        <div class="phase-divider"></div>
+
+        <!-- Phase 6 — dual -->
+        <div class="phase">
+            <div class="phase-text">
+                <div class="phase-number">06</div>
+                <span class="phase-label">Final Touches</span>
+                <h2 class="phase-title">Sealing & Finishing Up</h2>
+                <p class="phase-desc">Ridge caps were fitted along the top to seal the peak of the roof. Edge flashings were secured to prevent wind uplift. A final walkthrough checked for any gaps, loose bolts, or areas needing extra sealant. The roof was done and ready for the next 15 years.</p>
+            </div>
+            <div class="dual-photos">
+                <div class="phase-photo">
+                    <img src="https://huazman.site/outside-project/outsideproject7.jpg" alt="Sealing the roof edges">
+                </div>
+                <div class="phase-photo">
+                    <img src="https://huazman.site/outside-project/outsideproject8.jpg" alt="Completed roof">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FINAL -->
+    <div class="final-section">
+        <h2>Project Complete</h2>
+        <p>What looked like a daunting task turned out to be a rewarding hands-on experience. A 15-year-old roof, fully replaced — no contractors, just us.</p>
+        <a href="index.html#outside-projects" class="back-btn">← Back to Portfolio</a>
+    </div>
+
+    <footer>
+        <p>© 2026 UmarHanz Portfolio</p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const phases = document.querySelectorAll('.phase');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.12 });
+        phases.forEach(p => observer.observe(p));
+    </script>
+</body>
+</html>
