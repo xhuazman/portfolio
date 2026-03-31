@@ -88,20 +88,22 @@
           canvas.height = window.innerHeight;
           particles = [];
           
-          // Increased count slightly to account for smaller particles
-          const particleCount = 100; 
+          // We use slightly fewer particles because they are much larger now
+          const particleCount = 60; 
   
           for (let i = 0; i < particleCount; i++) {
-              // This creates a mix: most are small, some are large
-              const randomSize = Math.random() * Math.random() * 8 + 1; 
+              // This logic creates a few massive ones and many small ones
+              // Math.pow(x, 3) heavily biases towards small numbers but allows for big peaks
+              const randomSize = Math.pow(Math.random(), 3) * 45 + 1; 
               
               particles.push({
                   x: Math.random() * canvas.width,
                   y: Math.random() * canvas.height,
                   radius: randomSize,
-                  vx: (Math.random() - 0.5) * 0.4, // Speed X
-                  vy: (Math.random() - 0.5) * 0.4, // Speed Y
-                  opacity: Math.random() * 0.5 + 0.2 // Random transparency for depth
+                  vx: (Math.random() - 0.5) * 0.3, 
+                  vy: (Math.random() - 0.5) * 0.3,
+                  // Large particles get lower opacity so they look like "glows"
+                  opacity: randomSize > 20 ? Math.random() * 0.2 : Math.random() * 0.6 + 0.2
               });
           }
       }
@@ -113,19 +115,18 @@
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
               
-              // Apply the blue color with the particle's unique opacity
+              // Using your theme color #38bdf8
               ctx.fillStyle = `rgba(56, 189, 248, ${p.opacity})`;
               ctx.fill();
   
-              // Movement logic
               p.x += p.vx;
               p.y += p.vy;
   
-              // Screen wrap-around (so they don't disappear)
-              if (p.x < -10) p.x = canvas.width + 10;
-              if (p.x > canvas.width + 10) p.x = -10;
-              if (p.y < -10) p.y = canvas.height + 10;
-              if (p.y > canvas.height + 10) p.y = -10;
+              // Wrap around edges including the radius so they don't pop out of existence
+              if (p.x < -p.radius) p.x = canvas.width + p.radius;
+              if (p.x > canvas.width + p.radius) p.x = -p.radius;
+              if (p.y < -p.radius) p.y = canvas.height + p.radius;
+              if (p.y > canvas.height + p.radius) p.y = -p.radius;
           });
           
           requestAnimationFrame(draw);
