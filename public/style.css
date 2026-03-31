@@ -198,7 +198,7 @@ header {
     cursor: pointer;
     letter-spacing: 0.03em;
     position: relative; /* Essential for clickable priority */
-    z-index: 5;         /* Essential for clickable priority */
+    z-index: 20;         /* Essential for clickable priority */
 }
 .btn-primary { background: var(--accent); color: #000; }
 .btn-primary:hover {
