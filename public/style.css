@@ -2,15 +2,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    --bg:        #03080f;
-    --bg2:       #060d18;
-    --bg3:       #0a1525;
-    --accent:    #38bdf8;
-    --accent2:   #0ea5e9;
-    --text:      #dde6f0;
-    --muted:     #5a7490;
-    --border:    rgba(56,189,248,0.12);
-    --glow:      rgba(56,189,248,0.2);
+    --bg:         #03080f;
+    --bg2:        #060d18;
+    --bg3:        #0a1525;
+    --accent:     #38bdf8;
+    --accent2:    #0ea5e9;
+    --text:       #dde6f0;
+    --muted:      #5a7490;
+    --border:     rgba(56,189,248,0.12);
+    --glow:       rgba(56,189,248,0.2);
     --font-head: 'Bebas Neue', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 }
@@ -30,8 +30,8 @@ body {
 #particleCanvas {
     position: fixed;
     inset: 0;
-    z-index: -1;          /* Pushed to the very back */
-    pointer-events: none; /* Clicks pass through to the buttons */
+    z-index: -1 !important; 
+    pointer-events: none; /* Allows clicks to pass through to content */
     opacity: 0.32;
     filter: blur(1.6px);
 }
@@ -106,7 +106,7 @@ nav {
 /* ── Sections (FIXED) ── */
 header, section {
     position: relative;
-    z-index: 10; /* Ensures content stays above the canvas */
+    z-index: 10; 
 }
 
 header {
@@ -167,6 +167,8 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     animation: fadeUp 1s 0.45s ease both;
+    position: relative;
+    z-index: 20; /* Keep hero buttons clickable */
 }
 
 .scroll-hint {
@@ -183,7 +185,7 @@ header {
     animation: scrollPulse 2s ease-in-out infinite;
 }
 
-/* ── Buttons ── */
+/* ── Buttons (FIXED) ── */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -195,6 +197,8 @@ header {
     transition: all 0.25s ease;
     cursor: pointer;
     letter-spacing: 0.03em;
+    position: relative; /* Essential for clickable priority */
+    z-index: 5;         /* Essential for clickable priority */
 }
 .btn-primary { background: var(--accent); color: #000; }
 .btn-primary:hover {
@@ -271,6 +275,7 @@ h2 {
     border-radius: 20px;
     background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
     z-index: 0;
+    pointer-events: none;
 }
 
 .about-text p {
@@ -313,7 +318,7 @@ h2 {
     position: relative;
 }
 
-/* ── Projects ── */
+/* ── Projects (FIXED) ── */
 #tech-projects { background: var(--bg2); }
 #outside-projects { background: var(--bg); }
 
@@ -328,11 +333,22 @@ h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 .project-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(0,0,0,0.6);
     border-color: rgba(56,189,248,0.35);
+}
+
+/* Ensure card glow doesn't block clicks */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(56,189,248,0.05), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .card-tag {
