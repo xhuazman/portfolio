@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer — UmarHanz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="role-page.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <nav>
+        <a href="index.html" class="nav-logo">UmarHanz<span class="dot">.</span></a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#tech-projects">Projects</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    </nav>
+
+    <div class="role-hero">
+        <a href="index.html#about" class="back-link">&#8592; Back to About</a>
+        <span class="section-tag">What I do</span>
+        <h1>Developer</h1>
+        <p class="role-desc">Building software and hardware systems — from IoT devices to web applications. I work across the full stack, from firmware to frontend.</p>
+        <div class="chip-row" style="margin-top:28px;">
+            <span class="chip">IoT</span>
+            <span class="chip">Web Dev</span>
+            <span class="chip">Automation</span>
+            <span class="chip">AI</span>
+            <span class="chip">Embedded Systems</span>
+            <span class="chip">Firebase</span>
+        </div>
+    </div>
+
+    <div class="role-content">
+
+        <div class="role-section">
+            <span class="section-tag">IoT &amp; Hardware</span>
+            <h2>Building Connected Devices</h2>
+            <p class="role-text">I design and build IoT systems that bridge the physical and digital world. From smart plugs to sensor networks — if it connects and communicates, I'm into it.</p>
+            <div class="role-photo-grid">
+                <div class="role-photo-item">
+                    <div class="gallery-ph"><span>&#128268;</span><p>IoT project</p></div>
+                </div>
+                <div class="role-photo-item">
+                    <div class="gallery-ph"><span>&#128247;</span><p>Hardware build</p></div>
+                </div>
+                <div class="role-photo-item">
+                    <div class="gallery-ph"><span>&#128247;</span><p>Hardware build</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="role-section">
+            <span class="section-tag">Web &amp; Software</span>
+            <h2>Writing Code</h2>
+            <p class="role-text">I build web projects and tools, comfortable working with HTML, CSS, JavaScript, and backend services like Firebase. Always learning new frameworks and approaches.</p>
+            <div class="role-photo-grid">
+                <div class="role-photo-item">
+                    <div class="gallery-ph"><span>&#128187;</span><p>Coding setup</p></div>
+                </div>
+                <div class="role-photo-item">
+                    <div class="gallery-ph"><span>&#128247;</span><p>Project screenshot</p></div>
+                </div>
+                <div class="role-photo-item">
+                    <div class="gallery-ph"><span>&#128247;</span><p>Project screenshot</p></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <button class="lb-close" id="lbClose">&#10005;</button>
+        <div class="lb-content" id="lbContent"></div>
+    </div>
+
+    <footer><p>&copy; 2026 UmarHanz Portfolio</p></footer>
+
+    <script>
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d'); let particles = [];
+    function init() { canvas.width=window.innerWidth; canvas.height=window.innerHeight; particles=[]; for(let i=0;i<80;i++){const r=Math.pow(Math.random(),3)*40+1; particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,radius:r,vx:(Math.random()-0.5)*1.1,vy:(Math.random()-0.5)*1.1,opacity:r>20?Math.random()*0.18:Math.random()*0.55+0.15});}}
+    function draw() { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);ctx.fillStyle='rgba(56,189,248,'+p.opacity+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<-p.radius)p.x=canvas.width+p.radius;if(p.x>canvas.width+p.radius)p.x=-p.radius;if(p.y<-p.radius)p.y=canvas.height+p.radius;if(p.y>canvas.height+p.radius)p.y=-p.radius;}); requestAnimationFrame(draw);}
+    window.addEventListener('resize',init); init(); draw();
+
+    document.querySelectorAll('.role-photo-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (!img) return;
+            document.getElementById('lbContent').innerHTML = '';
+            const i = document.createElement('img');
+            i.src = img.src; i.style.maxHeight='85vh'; i.style.maxWidth='90vw'; i.style.borderRadius='8px';
+            document.getElementById('lbContent').appendChild(i);
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow='hidden';
+        });
+    });
+    document.getElementById('lbClose').addEventListener('click', () => { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; });
+    document.getElementById('lightbox').addEventListener('click', e => { if(e.target===document.getElementById('lightbox')){ document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }});
+    document.addEventListener('keydown', e => { if(e.key==='Escape'){ document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }});
+    </script>
+</body>
+</html>

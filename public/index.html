@@ -20,6 +20,7 @@
             <a href="#skills">Skills</a>
             <a href="#tech-projects">Projects</a>
             <a href="#outside-projects">Outside</a>
+            <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
         </div>
         <a href="#contact" class="nav-cta">Get in touch</a>
@@ -27,33 +28,99 @@
 
     <!-- HERO -->
     <header id="home">
-        <div class="hero-badge">● Available for internship &amp; collaboration</div>
+        <div class="hero-badge">&#9679; Available for internship &amp; collaboration</div>
         <h1 class="hero-name">
             <span class="line">Umar</span><span class="line accent">Hanz</span>
         </h1>
-        <p class="hero-sub">Developer &nbsp;·&nbsp; Tech Enthusiast &nbsp;·&nbsp; IoT &amp; AI</p>
+        <p class="hero-sub">Developer &nbsp;&middot;&nbsp; Tech Enthusiast &nbsp;&middot;&nbsp; IoT &amp; AI</p>
         <div class="hero-btns">
             <a href="#tech-projects" class="btn btn-primary">View Projects</a>
             <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
-        <div class="scroll-hint">
-            <div class="scroll-line"></div>
-        </div>
+        <div class="scroll-hint"><div class="scroll-line"></div></div>
     </header>
 
-    <!-- ABOUT (photo revealed here after scroll) -->
+    <!-- ABOUT -->
     <section id="about">
-        <div class="about-inner">
-            <div class="about-photo-wrap reveal-photo">
+        <div class="about-top">
+            <div class="about-photo-wrap reveal-fade">
                 <img src="profile1.jpg" class="profile-pic" alt="Umar's Photo">
                 <div class="photo-glow"></div>
             </div>
-            <div class="about-text">
+            <div class="about-right">
                 <span class="section-tag">Who I am</span>
                 <h2>About Me</h2>
-                <p>
-                    Hello! I'm Umar. I enjoy building technology projects and learning new skills in programming and system development. This portfolio showcases my work and technical abilities.
-                </p>
+                <p class="about-bio">Hey, I'm Umar — a tech enthusiast and maker from Malaysia. I enjoy building things, whether it's writing code, designing IoT systems, or working with my hands on real-world projects. Currently studying at Johor Matriculation College, always pushing myself to grow.</p>
+
+                <p class="role-hint">Click a role to explore &darr;</p>
+                <div class="role-tabs">
+                    <a href="about-student.html" class="role-tab">Student</a>
+                    <a href="about-developer.html" class="role-tab">Developer</a>
+                    <a href="about-maker.html" class="role-tab">Maker</a>
+                    <span class="role-tab locked">&#8212;</span>
+                    <span class="role-tab locked">&#8212;</span>
+                    <span class="role-tab locked">&#8212;</span>
+                    <span class="role-tab locked">&#8212;</span>
+                </div>
+
+                <!-- Quick stats always visible -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-val">3.83</span>
+                        <span class="stat-label">CGPA &mdash; Sem 1</span>
+                        <span class="stat-sub">Johor Matriculation College</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-val">3A 4B</span>
+                        <span class="stat-label">SPM Results</span>
+                        <span class="stat-sub">SMK Dato' Dol Said</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests -->
+        <div class="about-block reveal-fade">
+            <span class="section-tag">Personal Interests</span>
+            <div class="chip-row large">
+                <span class="chip">Photography</span>
+                <span class="chip">Videography</span>
+                <span class="chip">Robotics</span>
+                <span class="chip">IoT</span>
+                <span class="chip">Coding</span>
+                <span class="chip">DIY</span>
+                <span class="chip">Baking</span>
+                <span class="chip">Editing</span>
+                <span class="chip">Technology</span>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="about-block reveal-fade">
+            <span class="section-tag">Achievements</span>
+            <div class="ach-grid">
+                <div class="ach-card">
+                    <div class="ach-icon">&#127894;</div>
+                    <div class="ach-info">
+                        <span class="ach-title">PLKN Graduate</span>
+                        <span class="ach-sub">Siri 2 &middot; 2025</span>
+                    </div>
+                </div>
+                <div class="ach-card">
+                    <div class="ach-icon">&#129351;</div>
+                    <div class="ach-info">
+                        <span class="ach-title">Robotics Competitions</span>
+                        <span class="ach-sub">High School &mdash; details coming soon</span>
+                    </div>
+                </div>
+                <div class="ach-card ach-empty">
+                    <div class="ach-icon">+</div>
+                    <div class="ach-info"><span class="ach-title">Coming Soon</span><span class="ach-sub">Will be updated</span></div>
+                </div>
+                <div class="ach-card ach-empty">
+                    <div class="ach-icon">+</div>
+                    <div class="ach-info"><span class="ach-title">Coming Soon</span><span class="ach-sub">Will be updated</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -106,6 +173,48 @@
         </div>
     </section>
 
+    <!-- GALLERY -->
+    <section id="gallery">
+        <span class="section-tag">Through my lens</span>
+        <h2>Gallery</h2>
+        <p class="gallery-intro">Photos and videos I've captured. Click any to view full size.</p>
+        <div class="gallery-tabs">
+            <button class="gtab active" data-filter="all">All</button>
+            <button class="gtab" data-filter="photo">Photos</button>
+            <button class="gtab" data-filter="video">Videos</button>
+        </div>
+        <div class="gallery-grid">
+            <!-- TO ADD PHOTOS: replace gallery-ph div with: <img src="your-image-url.jpg" alt="description"> -->
+            <!-- TO ADD VIDEOS: replace gallery-ph div with: <video src="your-video-url.mp4" muted></video> -->
+            <div class="gallery-item" data-type="photo" data-src="">
+                <div class="gallery-ph"><span>&#128247;</span><p>Upload your photo</p></div>
+            </div>
+            <div class="gallery-item" data-type="photo" data-src="">
+                <div class="gallery-ph"><span>&#128247;</span><p>Upload your photo</p></div>
+            </div>
+            <div class="gallery-item" data-type="photo" data-src="">
+                <div class="gallery-ph"><span>&#128247;</span><p>Upload your photo</p></div>
+            </div>
+            <div class="gallery-item" data-type="video" data-src="">
+                <div class="gallery-ph"><span>&#127916;</span><p>Upload your video</p></div>
+            </div>
+            <div class="gallery-item" data-type="photo" data-src="">
+                <div class="gallery-ph"><span>&#128247;</span><p>Upload your photo</p></div>
+            </div>
+            <div class="gallery-item" data-type="video" data-src="">
+                <div class="gallery-ph"><span>&#127916;</span><p>Upload your video</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <button class="lb-close" id="lbClose">&#10005;</button>
+        <button class="lb-arrow lb-prev" id="lbPrev">&#8592;</button>
+        <button class="lb-arrow lb-next" id="lbNext">&#8594;</button>
+        <div class="lb-content" id="lbContent"></div>
+    </div>
+
     <!-- CONTACT -->
     <section id="contact">
         <span class="section-tag">Say hello</span>
@@ -113,76 +222,138 @@
         <p class="contact-email">xhu.azman@gmail.com</p>
     </section>
 
-    <footer>
-        <p>© 2026 UmarHanz Portfolio</p>
-    </footer>
+    <footer><p>&copy; 2026 UmarHanz Portfolio</p></footer>
 
     <script>
     /* ── Particles ── */
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
-
     function init() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         particles = [];
-        const count = 110;
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < 110; i++) {
             const r = Math.pow(Math.random(), 3) * 40 + 1;
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: r,
-                vx: (Math.random() - 0.5) * 1.1,
-                vy: (Math.random() - 0.5) * 1.1,
-                opacity: r > 20 ? Math.random() * 0.18 : Math.random() * 0.55 + 0.15
-            });
+            particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, radius: r, vx: (Math.random()-0.5)*1.1, vy: (Math.random()-0.5)*1.1, opacity: r>20 ? Math.random()*0.18 : Math.random()*0.55+0.15 });
         }
     }
-
     function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
         particles.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(56,189,248,${p.opacity})`;
-            ctx.fill();
-            p.x += p.vx; p.y += p.vy;
-            if (p.x < -p.radius) p.x = canvas.width + p.radius;
-            if (p.x > canvas.width + p.radius) p.x = -p.radius;
-            if (p.y < -p.radius) p.y = canvas.height + p.radius;
-            if (p.y > canvas.height + p.radius) p.y = -p.radius;
+            ctx.beginPath(); ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+            ctx.fillStyle='rgba(56,189,248,'+p.opacity+')'; ctx.fill();
+            p.x+=p.vx; p.y+=p.vy;
+            if(p.x<-p.radius) p.x=canvas.width+p.radius;
+            if(p.x>canvas.width+p.radius) p.x=-p.radius;
+            if(p.y<-p.radius) p.y=canvas.height+p.radius;
+            if(p.y>canvas.height+p.radius) p.y=-p.radius;
         });
         requestAnimationFrame(draw);
     }
+    window.addEventListener('resize', init); init(); draw();
 
-    window.addEventListener('resize', init);
-    init(); draw();
+    /* ── Gallery Lightbox ── */
+    const lightbox = document.getElementById('lightbox');
+    const lbContent = document.getElementById('lbContent');
+    let galleryItems = [];
+    let currentIndex = 0;
 
-    /* ── Scroll reveal for photo ── */
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) e.target.classList.add('visible');
-        });
-    }, { threshold: 0.2 });
+    function buildGallery() {
+        galleryItems = [];
+        document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+            const img = item.querySelector('img');
+            const vid = item.querySelector('video');
+            const src = img ? img.src : (vid ? vid.src : '');
+            const type = item.dataset.type;
+            if (src) galleryItems.push({ src, type, idx: galleryItems.length });
 
-    document.querySelectorAll('.reveal-photo').forEach(el => observer.observe(el));
-
-    /* ── Nav active link highlight ── */
-    const sections = document.querySelectorAll('header, section');
-    const navLinks = document.querySelectorAll('nav .nav-links a');
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach(a => {
-                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-                });
+            if (src) {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => openLightbox(galleryItems.length - 1));
             }
         });
-    }, { threshold: 0.4 });
-    sections.forEach(s => io.observe(s));
+    }
+
+    function openLightbox(index) {
+        if (galleryItems.length === 0) return;
+        currentIndex = index;
+        showLbItem(currentIndex);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showLbItem(index) {
+        const item = galleryItems[index];
+        lbContent.innerHTML = '';
+        if (item.type === 'video') {
+            const v = document.createElement('video');
+            v.src = item.src; v.controls = true; v.autoplay = true;
+            v.style.maxHeight = '80vh'; v.style.maxWidth = '90vw';
+            lbContent.appendChild(v);
+        } else {
+            const img = document.createElement('img');
+            img.src = item.src; img.alt = '';
+            img.style.maxHeight = '85vh'; img.style.maxWidth = '90vw';
+            img.style.borderRadius = '8px';
+            lbContent.appendChild(img);
+        }
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        lbContent.innerHTML = '';
+    }
+
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        showLbItem(currentIndex);
+    });
+    document.getElementById('lbNext').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        showLbItem(currentIndex);
+    });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+        if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+    });
+
+    /* ── Gallery Filter ── */
+    document.querySelectorAll('.gtab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const filter = tab.dataset.filter;
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.style.display = (filter==='all' || item.dataset.type===filter) ? 'block' : 'none';
+            });
+        });
+    });
+
+    /* ── Scroll Reveal ── */
+    const ro = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-fade').forEach(el => ro.observe(el));
+
+    /* ── Nav Active ── */
+    const secs = document.querySelectorAll('header, section');
+    const nLinks = document.querySelectorAll('nav .nav-links a');
+    const nio = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const id = entry.target.id;
+                nLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+            }
+        });
+    }, { threshold: 0.3 });
+    secs.forEach(s => nio.observe(s));
+
+    buildGallery();
     </script>
 </body>
 </html>
